@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-opensea/static/css/main.c591b64d.chunk.css",
+    "main.js": "/react-opensea/static/js/main.1ee1e686.chunk.js",
+    "main.js.map": "/react-opensea/static/js/main.1ee1e686.chunk.js.map",
+    "runtime-main.js": "/react-opensea/static/js/runtime-main.fefaba45.js",
+    "runtime-main.js.map": "/react-opensea/static/js/runtime-main.fefaba45.js.map",
+    "static/js/2.d6d55d87.chunk.js": "/react-opensea/static/js/2.d6d55d87.chunk.js",
+    "static/js/2.d6d55d87.chunk.js.map": "/react-opensea/static/js/2.d6d55d87.chunk.js.map",
+    "static/js/3.124b7d30.chunk.js": "/react-opensea/static/js/3.124b7d30.chunk.js",
+    "static/js/3.124b7d30.chunk.js.map": "/react-opensea/static/js/3.124b7d30.chunk.js.map",
+    "index.html": "/react-opensea/index.html",
+    "static/css/main.c591b64d.chunk.css.map": "/react-opensea/static/css/main.c591b64d.chunk.css.map",
+    "static/js/2.d6d55d87.chunk.js.LICENSE.txt": "/react-opensea/static/js/2.d6d55d87.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fefaba45.js",
+    "static/js/2.d6d55d87.chunk.js",
+    "static/css/main.c591b64d.chunk.css",
+    "static/js/main.1ee1e686.chunk.js"
+  ]
+}
