@@ -2,6 +2,7 @@
   "name": "react-opensea",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://chesminsky.github.io/react-opensea/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
@@ -10,19 +11,22 @@
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.7",
+    "gh-pages": "^3.2.0",
+    "opensea-js": "^1.1.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.3.2",
     "web-vitals": "^1.1.2",
-    "opensea-js": "^1.1.11",
     "web3": "^1.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
