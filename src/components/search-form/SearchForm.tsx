@@ -32,9 +32,9 @@ export class SearchForm extends React.Component<{}, MyState> {
 
 	async search() {
 		// This example provider won't let you make transactions, only read-only calls:
-		const provider = new Web3.providers.HttpProvider('https://mainnet.infura.io');
+		// const provider = new Web3.providers.HttpProvider('https://mainnet.infura.io');
 
-		const seaport = new OpenSeaPort(provider, {
+		const seaport = new OpenSeaPort(window.ethereum, {
 			networkName: Network.Main
 		});
 		const resp = await seaport.api.getAssets({

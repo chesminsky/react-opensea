@@ -1,7 +1,9 @@
 .list {
 	display: flex;
 	flex-wrap: wrap;
+	padding: 0;
 }
+
 .list li {
 	display: block;
 	list-style: none;
@@ -10,6 +12,12 @@
     box-sizing: border-box;
     margin-right: 20px;
 }
+
 input {
 	width: 400px;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 100px auto;
 }
