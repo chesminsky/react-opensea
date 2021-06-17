@@ -9,6 +9,9 @@ interface MyState {
 }
 
 export class SearchForm extends React.Component<{}, MyState> {
+	private seaport!: OpenSeaPort;
+	private owner = '0x6235f76c0ff77e9bffabcbf68cc6f4a74190c7f3';
+
 	constructor(props: {}) {
 		super(props);
 		this.state = { value: '', assets: [] };
@@ -34,24 +37,39 @@ export class SearchForm extends React.Component<{}, MyState> {
 		// This example provider won't let you make transactions, only read-only calls:
 		// const provider = new Web3.providers.HttpProvider('https://mainnet.infura.io');
 
-		const seaport = new OpenSeaPort(Web3.givenProvider, {
-			networkName: Network.Main
+		this.seaport = new OpenSeaPort(Web3.givenProvider, {
+			networkName: Network.Rinkeby
 		});
-		const resp = await seaport.api.getAssets({
-			owner: '0x1a45356fd0e8c90c05f45a70a549531b5090f97e'
+		const resp = await this.seaport.api.getAssets({
+			owner: this.owner
 		});
 
 		this.setState({ assets: resp.assets });
+
+		//const prices = await Promise.all(this.state.assets.map((a) => this.getPrice(a)));
+		//const prices = await this.getPrice(this.state.assets[1]);
+
+		//console.log(prices);
 	}
 
-	getPrice(item: OpenSeaAsset): number {
-        console.log(item);
-        
-		const p = (item.sellOrders as Order[])[0].currentPrice?.toNumber() as number / 1000000;
-		console.log('price', p);
-		return p;
+
+	getPrice(asset: OpenSeaAsset) {
+		console.log(asset);
+		if (!asset.sellOrders) {
+			return ''
+		}
+		return asset.sellOrders![0].basePrice.toNumber() / 1000000000000000000;
+
 	}
 
+	getLast(asset: OpenSeaAsset) {
+		console.log(asset);
+		if (!asset.lastSale) {
+			return ''
+		}
+		return +asset.lastSale.totalPrice / 1000000000000000000;
+
+	}
 	render() {
 		return (
 			<div>
@@ -61,12 +79,13 @@ export class SearchForm extends React.Component<{}, MyState> {
 				</form> */}
 
 				<ul className="list">
-					{this.state.assets.map((item) => (
-						<li key={item.tokenId}>
+					{this.state.assets.map((item, i) => (
+						<li key={item.name + i}>
 							<img src={item.imageUrl} />
 							<p>{item.collection.name}</p>
 							<p>{item.name}</p>
 							<p>Price: {this.getPrice(item)}</p>
+							<p>Last: {this.getLast(item)}</p>
 						</li>
 					))}
 				</ul>
