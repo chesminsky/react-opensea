@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-opensea/static/css/main.1d944ef6.chunk.css",
-    "main.js": "/react-opensea/static/js/main.4ecb75ec.chunk.js",
-    "main.js.map": "/react-opensea/static/js/main.4ecb75ec.chunk.js.map",
+    "main.css": "/react-opensea/static/css/main.599960a2.chunk.css",
+    "main.js": "/react-opensea/static/js/main.3c7ab05a.chunk.js",
+    "main.js.map": "/react-opensea/static/js/main.3c7ab05a.chunk.js.map",
     "runtime-main.js": "/react-opensea/static/js/runtime-main.dbadd247.js",
     "runtime-main.js.map": "/react-opensea/static/js/runtime-main.dbadd247.js.map",
-    "static/js/2.67225838.chunk.js": "/react-opensea/static/js/2.67225838.chunk.js",
-    "static/js/2.67225838.chunk.js.map": "/react-opensea/static/js/2.67225838.chunk.js.map",
+    "static/js/2.c870fdd3.chunk.js": "/react-opensea/static/js/2.c870fdd3.chunk.js",
+    "static/js/2.c870fdd3.chunk.js.map": "/react-opensea/static/js/2.c870fdd3.chunk.js.map",
     "static/js/3.07042408.chunk.js": "/react-opensea/static/js/3.07042408.chunk.js",
     "static/js/3.07042408.chunk.js.map": "/react-opensea/static/js/3.07042408.chunk.js.map",
     "index.html": "/react-opensea/index.html",
-    "static/css/main.1d944ef6.chunk.css.map": "/react-opensea/static/css/main.1d944ef6.chunk.css.map",
-    "static/js/2.67225838.chunk.js.LICENSE.txt": "/react-opensea/static/js/2.67225838.chunk.js.LICENSE.txt"
+    "static/css/main.599960a2.chunk.css.map": "/react-opensea/static/css/main.599960a2.chunk.css.map",
+    "static/js/2.c870fdd3.chunk.js.LICENSE.txt": "/react-opensea/static/js/2.c870fdd3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbadd247.js",
-    "static/js/2.67225838.chunk.js",
-    "static/css/main.1d944ef6.chunk.css",
-    "static/js/main.4ecb75ec.chunk.js"
+    "static/js/2.c870fdd3.chunk.js",
+    "static/css/main.599960a2.chunk.css",
+    "static/js/main.3c7ab05a.chunk.js"
   ]
 }
