@@ -47,7 +47,7 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 				</div>
 			);
 		} else {
-			rootNode = <SearchForm />;
+			rootNode = <SearchForm accountAddress={this.state.accounts[0]}/>;
 		}
 
 		return <div className="container">{rootNode}</div>;

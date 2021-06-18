@@ -8,11 +8,15 @@ interface MyState {
 	assets: OpenSeaAsset[];
 }
 
-export class SearchForm extends React.Component<{}, MyState> {
-	private seaport!: OpenSeaPort;
-	private accountAddress = '0x546cb129e173d8126c59c6415b1afba29719279c';
+interface MyProps {
+	accountAddress: string;
+}
 
-	constructor(props: {}) {
+export class SearchForm extends React.Component<MyProps, MyState> {
+	private seaport!: OpenSeaPort;
+	private accountAddress!: string;
+
+	constructor(props: MyProps) {
 		super(props);
 		this.state = { owner: '0x76b81595e372733d13688e6da9b1d5474c9c769b', assets: [] };
 
@@ -20,9 +24,12 @@ export class SearchForm extends React.Component<{}, MyState> {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.makeOffer = this.makeOffer.bind(this);
 		this.buy = this.buy.bind(this);
+		this.accountAddress = props.accountAddress;
 	}
 
 	componentDidMount() {
+		console.log('my account', this.accountAddress);
+		
 		this.search();
 	}
 
