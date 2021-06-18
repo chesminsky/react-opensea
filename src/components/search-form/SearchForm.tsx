@@ -4,19 +4,17 @@ import { OpenSeaPort, Network } from 'opensea-js';
 import { OpenSeaAsset, Order, WyvernSchemaName } from 'opensea-js/lib/types';
 
 interface MyState {
-	value: string;
+	owner: string;
 	assets: OpenSeaAsset[];
 }
 
 export class SearchForm extends React.Component<{}, MyState> {
 	private seaport!: OpenSeaPort;
-	private owner = '0x76b81595e372733d13688e6da9b1d5474c9c769b';
-
 	private accountAddress = '0x546cb129e173d8126c59c6415b1afba29719279c';
 
 	constructor(props: {}) {
 		super(props);
-		this.state = { value: '', assets: [] };
+		this.state = { owner: '0x76b81595e372733d13688e6da9b1d5474c9c769b', assets: [] };
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +27,7 @@ export class SearchForm extends React.Component<{}, MyState> {
 	}
 
 	handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({ value: event.target.value });
+		this.setState({ owner: event.target.value });
 	}
 
 	handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -45,7 +43,7 @@ export class SearchForm extends React.Component<{}, MyState> {
 			networkName: Network.Rinkeby
 		});
 		const resp = await this.seaport.api.getAssets({
-			owner: this.owner
+			owner: this.state.owner
 		});
 
 		this.setState({ assets: resp.assets });
@@ -117,15 +115,15 @@ export class SearchForm extends React.Component<{}, MyState> {
 	render() {
 		return (
 			<div>
-				{/* <form onSubmit={this.handleSubmit}>
-					<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="search" />
+				<form onSubmit={this.handleSubmit}>
+					<input type="text" value={this.state.owner} onChange={this.handleChange} placeholder="owner adress" />
 					<button type="submit">SEARCH</button>
-				</form> */}
+				</form>
 
 				<ul className="list">
 					{this.state.assets.map((item, i) => (
 						<li key={item.name + i}>
-							<img src={item.imageUrl} />
+							<img src={item.imageUrl || 'https://dummyimage.com/250x250/fff/000'} />
 							<p>{item.collection.name}</p>
 							<p>{item.name}</p>
 							<p>Price: {this.getPrice(item)}</p>
