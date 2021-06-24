@@ -3,6 +3,7 @@ import { SearchForm } from './components/search-form/SearchForm';
 import detectEthereumProvider from '@metamask/detect-provider';
 import React from 'react';
 import Web3 from 'web3';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export class App extends React.Component<{}, { provider: any; accounts: Array<any> }> {
 	constructor(props: {}) {
@@ -21,7 +22,6 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 			const accounts = await this.getAccounts();
 			this.setState({ provider, accounts });
 			console.log(this.state);
-			
 		} else {
 			this.setState({ provider: null });
 		}
@@ -47,10 +47,36 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 				</div>
 			);
 		} else {
-			rootNode = <SearchForm accountAddress={this.state.accounts[0]}/>;
+			rootNode = <SearchForm accountAddress={this.state.accounts[0]} />;
 		}
 
-		return <div className="container">{rootNode}</div>;
+		return (
+			<Router>
+				<div>
+					<nav>
+						<ul>
+							<li>
+								<Link to="/">Home</Link>
+							</li>
+							<li>
+								<Link to="/profile">Profile</Link>
+							</li>
+						</ul>
+					</nav>
+					<div className="container">
+						<Switch>
+							<Route path="/profile">
+								<h2>Your assets</h2>
+								<SearchForm accountAddress={this.state.accounts[0]} owner={this.state.accounts[0]}/>
+							</Route>
+							<Route path="/">
+								{rootNode}
+							</Route>
+						</Switch>
+					</div>
+				</div>
+			</Router>
+		);
 	}
 }
 

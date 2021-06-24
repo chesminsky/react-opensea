@@ -22,3 +22,25 @@ input {
 	max-width: 1000px;
 	margin: 100px auto;
 }
+
+nav {
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 16px;
+}
+
+nav ul li a {
+	border: 1px solid #eee;
+	display: block;
+	text-decoration: none;
+	padding: 8px;
+	color: black !important;
+}
+
+.hidden {
+	display: none;
+}

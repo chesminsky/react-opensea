@@ -1,50 +1,55 @@
 {
-  "name": "react-opensea",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://chesminsky.github.io/react-opensea/",
-  "dependencies": {
-    "@metamask/detect-provider": "^1.2.0",
-    "@testing-library/jest-dom": "^5.13.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.2",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.7",
-    "gh-pages": "^3.2.0",
-    "opensea-js": "^1.1.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.3.2",
-    "web-vitals": "^1.1.2",
-    "web3": "^1.3.6"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "react-opensea",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://chesminsky.github.io/react-opensea/",
+	"dependencies": {
+		"@metamask/detect-provider": "^1.2.0",
+		"@testing-library/jest-dom": "^5.13.0",
+		"@testing-library/react": "^11.2.7",
+		"@testing-library/user-event": "^12.8.3",
+		"opensea-js": "^1.1.11",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"typescript": "^4.3.2",
+		"web-vitals": "^1.1.2",
+		"web3": "^1.3.6"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@types/react-router-dom": "^5.1.7",
+		"@types/jest": "^26.0.23",
+		"@types/node": "^15.12.2",
+		"@types/react": "^17.0.11",
+		"@types/react-dom": "^17.0.7",
+		"@types/react-router": "^5.1.15",
+		"gh-pages": "^3.2.0"
+	}
 }

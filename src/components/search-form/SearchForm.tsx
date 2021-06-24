@@ -6,10 +6,12 @@ import { OpenSeaAsset, Order, WyvernSchemaName } from 'opensea-js/lib/types';
 interface MyState {
 	owner: string;
 	assets: OpenSeaAsset[];
+	isProfilePage: boolean;
 }
 
 interface MyProps {
 	accountAddress: string;
+	owner?: string;
 }
 
 export class SearchForm extends React.Component<MyProps, MyState> {
@@ -18,18 +20,19 @@ export class SearchForm extends React.Component<MyProps, MyState> {
 
 	constructor(props: MyProps) {
 		super(props);
-		this.state = { owner: '0x76b81595e372733d13688e6da9b1d5474c9c769b', assets: [] };
+
+		const defOwner = '0x76b81595e372733d13688e6da9b1d5474c9c769b';
+		this.state = { owner: this.props.owner || defOwner, assets: [], isProfilePage: Boolean(this.props.owner) };
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.makeOffer = this.makeOffer.bind(this);
 		this.buy = this.buy.bind(this);
 		this.accountAddress = props.accountAddress;
 	}
 
 	componentDidMount() {
 		console.log('my account', this.accountAddress);
-		
+
 		this.search();
 	}
 
@@ -77,36 +80,10 @@ export class SearchForm extends React.Component<MyProps, MyState> {
 		return +asset.lastSale.totalPrice / 1000000000000000000;
 	}
 
-	async makeOffer(asset: OpenSeaAsset) {
-		console.log(asset);
-
-		// Token ID and smart contract address for a non-fungible token:
-		const { tokenId, tokenAddress } = asset;
-		// The offerer's wallet address:
-		const accountAddress = this.accountAddress;
-
-		let offer;
-		try {
-			offer = await this.seaport.createBuyOrder({
-				asset: { tokenId, tokenAddress },
-				accountAddress,
-				// Value of the offer, in units of the payment token (or wrapped ETH if none is specified):
-				startAmount: 0.5,
-				quantity: 1
-			});
-		} catch (e) {
-			alert(e);
-		}
-
-		alert(offer);
-
-		window.location.reload();
-	}
-
 	async buy(item: OpenSeaAsset) {
 		if (!item.sellOrders) {
 			alert('no sell orders');
-			return
+			return;
 		}
 		let hash = '';
 		try {
@@ -122,8 +99,13 @@ export class SearchForm extends React.Component<MyProps, MyState> {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" value={this.state.owner} onChange={this.handleChange} placeholder="owner adress" />
+				<form onSubmit={this.handleSubmit} className={this.state.isProfilePage ? 'hidden' : ''}>
+					<input
+						type="text"
+						value={this.state.owner}
+						onChange={this.handleChange}
+						placeholder="owner adress"
+					/>
 					<button type="submit">SEARCH</button>
 				</form>
 
@@ -135,9 +117,9 @@ export class SearchForm extends React.Component<MyProps, MyState> {
 							<p>{item.name}</p>
 							<p>Price: {this.getPrice(item)}</p>
 							<p>Last: {this.getLast(item)}</p>
-							{/* <button onClick={() => this.makeOffer(item)}>MAKE OFFER</button>
-							<br/> */}
-							<button onClick={() => this.buy(item)}>BUY</button>
+							<button className={this.state.isProfilePage ? 'hidden' : ''} onClick={() => this.buy(item)}>
+								BUY
+							</button>
 						</li>
 					))}
 				</ul>
