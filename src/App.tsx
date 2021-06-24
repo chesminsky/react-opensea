@@ -51,7 +51,7 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 		}
 
 		return (
-			<HashRouter basename='/'>
+			<HashRouter basename='#'>
 				<div>
 					<nav>
 						<ul>
