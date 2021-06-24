@@ -3,7 +3,7 @@ import { SearchForm } from './components/search-form/SearchForm';
 import detectEthereumProvider from '@metamask/detect-provider';
 import React from 'react';
 import Web3 from 'web3';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 export class App extends React.Component<{}, { provider: any; accounts: Array<any> }> {
 	constructor(props: {}) {
@@ -51,7 +51,7 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 		}
 
 		return (
-			<Router>
+			<HashRouter basename='/'>
 				<div>
 					<nav>
 						<ul>
@@ -75,7 +75,7 @@ export class App extends React.Component<{}, { provider: any; accounts: Array<an
 						</Switch>
 					</div>
 				</div>
-			</Router>
+			</HashRouter>
 		);
 	}
 }
